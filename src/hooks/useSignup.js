@@ -11,7 +11,10 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await axios.post("http://localhost:3001/apis/user/signup", { email, password });
+    const response = await axios.post(
+      "https://glorious-mite-waistcoat.cyclic.cloudapis/user/signup",
+      { email, password }
+    );
       
     const json = await response.data;
 

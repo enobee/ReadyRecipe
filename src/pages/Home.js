@@ -14,9 +14,12 @@ const Home = () => {
  
   useEffect(() => {
     const fetchRecipes = async () => {
-      const response = await axios.get("http://localhost:3001/apis/recipe/", {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      const response = await axios.get(
+        "https://glorious-mite-waistcoat.cyclic.cloud/apis/recipe/",
+        {
+          headers: { Authorization: `Bearer ${user.token}` },
+        }
+      );
 
       const json = await response.data;
 

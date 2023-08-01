@@ -45,10 +45,12 @@ const CreateRecipe = () => {
      }
 
     const response = await axios.post(
-      "http://localhost:3001/apis/recipe",
+      "https://glorious-mite-waistcoat.cyclic.cloud/apis/recipe",
       { ...recipe },
       {
-        headers: {'Authorization': `Bearer ${user.token}`}});
+        headers: { Authorization: `Bearer ${user.token}` },
+      }
+    );
       
 
     const json = response.data;

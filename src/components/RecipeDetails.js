@@ -16,8 +16,12 @@ const RecipeDetails = ({ recipe }) => {
     //   setError("You must be logged in");
     //   return;
     // }
-    const response = await axios.delete(`http://localhost:3001/apis/recipe/${recipe._id}`, {
-        headers: {'Authorization': `Bearer ${user.token}`}}); 
+    const response = await axios.delete(
+      `https://glorious-mite-waistcoat.cyclic.cloud/apis/recipe/${recipe._id}`,
+      {
+        headers: { Authorization: `Bearer ${user.token}` },
+      }
+    ); 
     console.log(response)
     const json = await response.data
 

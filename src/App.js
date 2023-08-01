@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 function App() {
   const { user } = useAuthContext();
   console.log({userfromapp: user})
+  console.log({domain: process.env.REACT_APP_DOMAIN})
   return (
     <div className="App">
       <BrowserRouter>
