@@ -16,7 +16,10 @@ export const useLogin = () => {
        { email, password }
      );
 
+     console.log({responsefromlogin: response.data})
+
      const json = await response.data;
+     
 ;
 
     if (response.status !== 200) {
