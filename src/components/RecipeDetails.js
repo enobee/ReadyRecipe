@@ -12,10 +12,10 @@ const RecipeDetails = ({ recipe }) => {
 
   const handleClick = async () => {
 
-    if (!user) {
-      setError("You must be logged in");
-      return;
-    }
+    // if (!user) {
+    //   setError("You must be logged in");
+    //   return;
+    // }
     const response = await axios.delete(`http://localhost:3001/apis/recipe/${recipe._id}`, {
         headers: {'Authorization': `Bearer ${user.token}`}}); 
     console.log(response)
@@ -26,17 +26,21 @@ const RecipeDetails = ({ recipe }) => {
     }
   }
     return (
-      <div className="card">
-        <div className="recipe-details">
-          <h4>Recipe Name: {recipe.name}</h4>
+      <div className="card mb-4">
+        <div className="recipe-details relative">
+          <h4>
+            <strong>Recipe Name:</strong> {recipe.name}
+          </h4>
           <p>
             <strong>Ingredients:</strong>
           </p>
-          <ul>
-            {recipe.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
-            ))}
-          </ul>
+          <div className="pl-5">
+            <ul className="list-disc">
+              {recipe.ingredients.map((ingredient, index) => (
+                <li key={index}>{ingredient}</li>
+              ))}
+            </ul>
+          </div>
 
           <p>
             <strong>Instructions: </strong>
@@ -51,7 +55,10 @@ const RecipeDetails = ({ recipe }) => {
               addSuffix: true,
             })}
           </p>
-          <span className="material-symbols-outlined" onClick={handleClick}>
+          <span
+            className="material-symbols-outlined text-[red] cursor-pointer absolute top-0 right-[3px]"
+            onClick={handleClick}
+          >
             delete
           </span>
         </div>

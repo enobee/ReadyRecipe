@@ -6,6 +6,7 @@ import RecipeDetails from "../components/RecipeDetails";
 import { useRecipesContext } from "../hooks/useRecipesContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+
 const Home = () => {
   const { recipes, dispatch } = useRecipesContext();
   const { user } = useAuthContext();

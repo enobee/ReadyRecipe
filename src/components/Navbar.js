@@ -12,28 +12,30 @@ const Navbar = () => {
    };
 
   return (
-    <header>
-      <div className="container">
+      <div className="h-[90px] shadow-lg flex items-center justify-between px-2  text-white bg-teal-500">
         <Link to="/">
-          <h1>ready recipes</h1>
+          <h1 className="text-[28px] font-[500] tracking-[2px]">ReadyRecipes</h1>
         </Link>
-        <nav>
+        <nav className="">
           {user && (
-            <div>
+            <div className="flex gap-3 items-center">
+              <Link className="bg-red-400 p-2 font-[500]" to="/recipe">Create Recipe</Link>
               <span>{user.email}</span>
-              <button onClick={handleClick}>Log out</button>
+              <button className="border border-white p-2 rounded-xl" onClick={handleClick}>Log out</button>
             </div>
           )}
-          {!user && (
-            <div>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-              
-            </div>
-          )}
+
         </nav>
+          {!user && (
+          <div className="">
+            <div className="flex items-center justify-center gap-2">
+              <Link className="bg-red-400 p-2 rounded-xl font-[500]" to="/login">Login</Link>
+              <Link className="border border-white p-2 rounded-xl" to="/signup">Signup</Link>
+            </div>
+          </div>
+          )}
+
       </div>
-    </header>
   );
 };
 

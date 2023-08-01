@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import CreateRecipe from "./pages/CreateRecipe";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   const { user } = useAuthContext();
@@ -14,7 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <div className="pages">
+        <div className="pages min-h-screen">
           <Routes>
             <Route
               path="/"
@@ -34,6 +35,7 @@ function App() {
             />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );
