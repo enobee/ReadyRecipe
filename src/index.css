@@ -49,7 +49,7 @@ label {
   color: #666;
 }
 
-input[type="text"],
+/* input[type="text"],
 textarea,
 input[type="number"] {
   width: 100%;
@@ -57,7 +57,7 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 16px;
-}
+} */
 
 button[type="button"]
  button[type="submit"] {
@@ -90,6 +90,9 @@ div.error {
   margin: 20px 0;
 }
 input.error {
+  border: 1px solid var(--error);
+}
+textarea.error {
   border: 1px solid var(--error);
 }
 

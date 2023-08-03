@@ -6,35 +6,31 @@ export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
+  const domain = process.env.REACT_APP_DOMAIN;
 
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
 
-     const response = await axios.post(
-       "https://glorious-mite-waistcoat.cyclic.cloud/apis/user/login",
-       { email, password }
-     );
-
-     console.log({responsefromlogin: response.data})
-
-     const json = await response.data;
-     
-;
-
-    if (response.status !== 200) {
-      setIsLoading(false);
-      setError(json.error);
+    try{
+      const response = await axios.post(
+        `${domain}/apis/user/login`,
+        { email, password });
+        const json = await response.data;
+      if (response.status === 200) {
+        // save the user to local storage
+        localStorage.setItem("user", JSON.stringify(json));
+  
+        // update the auth context
+        dispatch({ type: "LOGIN", payload: json });
+  
+        // update loading state
+        setIsLoading(false);
     }
-    if (response.status === 200) {
-      // save the user to local storage
-      localStorage.setItem("user", JSON.stringify(json));
-
-      // update the auth context
-      dispatch({ type: "LOGIN", payload: json });
-
-      // update loading state
+  }catch(error){
       setIsLoading(false);
+      setError(error.response.data.error);
+
     }
   };
 
