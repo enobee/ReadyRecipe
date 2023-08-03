@@ -7,7 +7,6 @@ const Signup = () => {
   const [show, setShow] = useState(false)
   const { signup, error, isLoading } = useSignup();
 
-  console.log({error: error})
   const handleSubmit = async (e) => {
     e.preventDefault();
 

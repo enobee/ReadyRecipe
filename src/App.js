@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 
 function App() {
   const { user } = useAuthContext();
-  
   return (
     <div className="App">
       <BrowserRouter>

@@ -19,7 +19,7 @@ export const useSignup = () => {
         password,
       });
       const json = await response.data;
-      if (response.ok) {
+      if (response.status === 200) {
         // save the user to local storage
         localStorage.setItem("user", JSON.stringify(json));
 
